@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: #0b1220;
+  color: #e2e8f0;
+  font: 13px/1.45 system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+  background: #0b1220;
+}
+
+/* ---------- barra flotante ---------- */
+#ui {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 9px;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: linear-gradient(180deg, rgba(19, 29, 48, 0.78), rgba(9, 15, 27, 0.82));
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow:
+    0 20px 40px -16px rgba(0, 0, 0, 0.85),
+    0 2px 8px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  user-select: none;
+}
+
+#ui .btns {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.hint {
+  padding: 8px 7px 2px;
+  border-top: 1px solid rgba(148, 163, 184, 0.13);
+  color: #93a4bb;
+  font-size: 12.5px;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+
+/* ---------- botones fantasma ---------- */
+.ghost {
+  --accent: #38bdf8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  width: 100%;
+  padding: 9px 14px 9px 11px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 11px;
+  background: rgba(148, 163, 184, 0.05);
+  color: #d7e0ec;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease,
+    transform 0.16s ease;
+}
+
+#clearAll.ghost {
+  --accent: #f87171;
+}
+
+.ghost svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  opacity: 0.9;
+  transition: opacity 0.16s ease;
+}
+
+.ghost:hover {
+  background: rgba(148, 163, 184, 0.11);
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow:
+    0 8px 20px -10px var(--accent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.ghost:hover svg {
+  opacity: 1;
+}
+
+.ghost:active {
+  transform: translateY(0) scale(0.985);
+  background: rgba(148, 163, 184, 0.16);
+  box-shadow: none;
+}
+
+.ghost:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- marcadores del mapa ---------- */
+.mk-pin {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.mk-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mk-badge {
+  margin-top: 2px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  font-family: system-ui, sans-serif;
+}
+
+.mk-reopen {
+  position: relative;
+}
+
+.mk-reopen .ring {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e879f9;
+  border: 2px solid #fff;
+  box-shadow: 0 0 8px rgba(232, 121, 249, 0.5);
+}
+
+.mk-reopen .lbl {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid #e879f9;
+  color: #fff;
+  font-size: 10px;
+  white-space: nowrap;
+  font-family: system-ui, sans-serif;
+}
+
+/* el mapa entero con cursor de precisión */
+.leaflet-container {
+  background: #0b1220; /* por defecto Leaflet pone #ddd */
+  cursor: crosshair;
+}

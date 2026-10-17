@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fortnite Drop Calculator — dónde saltar del bus</title>
+    <meta
+      name="description"
+      content="Calculadora de drops: marcá el destino y la línea del bus y te dice dónde saltar, cuándo desplegar el planeador, cuándo cortarlo y cuándo reabrirlo. Todo el cálculo corre en tu navegador."
+    />
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="vendor/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <div id="ui">
+      <div class="btns">
+        <button id="clearBus" class="ghost" title="Borrar los puntos del bus">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M3 18 21 8"
+              fill="none"
+              stroke="#00d4ff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-dasharray="4 3"
+            />
+            <path
+              d="M4 6 20 18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+          Limpiar bus
+        </button>
+
+        <button id="clearAll" class="ghost" title="Borrar todo">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M6 6l1 14a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-14"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path d="M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          Limpiar todo
+        </button>
+      </div>
+
+      <span id="hint" class="hint">Clic en el mapa: destino</span>
+    </div>
+
+    <script src="vendor/leaflet.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
