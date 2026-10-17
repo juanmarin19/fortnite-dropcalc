@@ -272,46 +272,20 @@
     });
   }
 
-  /* Iconos de los marcadores: SVG propios, sin archivos externos.
-     kind = 'paraplu' (se despliega el planeador) | 'cut' (se corta). */
-  const MARKER_SVG = {
-    paraplu: function (c) {
-      return (
-        '<path d="M3.2 11.2a8.8 8.8 0 0 1 17.6 0Z" fill="' +
-        c +
-        '"/>' +
-        '<path d="M12 11.2v7.2M5.6 11.2 12 18.4M18.4 11.2 12 18.4" stroke="#0b1220" stroke-width="1.3" fill="none" stroke-linecap="round"/>' +
-        '<circle cx="12" cy="19.6" r="2" fill="' +
-        c +
-        '"/>'
-      );
-    },
-    cut: function (c) {
-      return (
-        '<circle cx="6.4" cy="17.6" r="2.6" fill="none" stroke="' +
-        c +
-        '" stroke-width="1.8"/>' +
-        '<circle cx="17.6" cy="17.6" r="2.6" fill="none" stroke="' +
-        c +
-        '" stroke-width="1.8"/>' +
-        '<path d="M8.4 15.7 17 4.8M15.6 15.7 7 4.8" stroke="' +
-        c +
-        '" stroke-width="1.8" fill="none" stroke-linecap="round"/>'
-      );
-    },
-  };
-
+  /* Iconos de los marcadores: los mismos archivos que usa el original
+     (vendor/icons/paraplu.png y cut.png, arte de titandropm.com) y con el mismo
+     tamaño, sombra y opacidad. kind = 'paraplu' (se despliega) | 'cut' (se corta). */
   function iconMarker(size, kind, badgeColor, badgeText, dim) {
     const img =
-      '<svg viewBox="0 0 24 24" width="' +
+      '<img src="vendor/icons/' +
+      kind +
+      '.png" alt="" style="width:' +
       size +
-      '" height="' +
+      'px;height:' +
       size +
-      '" aria-hidden="true" style="filter:drop-shadow(0 0 4px rgba(0,0,0,0.55));' +
+      'px;object-fit:contain;filter:drop-shadow(0 0 4px rgba(0,0,0,0.5));' +
       (dim ? 'opacity:0.7;' : '') +
-      '">' +
-      (MARKER_SVG[kind] ? MARKER_SVG[kind](badgeColor) : '') +
-      '</svg>';
+      '">';
     return L.divIcon({
       className: '',
       html:

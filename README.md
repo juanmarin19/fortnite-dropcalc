@@ -81,5 +81,10 @@ node tools/vendor-leaflet.cjs
 
 - Código: **MIT** — ver [LICENSE](LICENSE).
 - [Leaflet](https://leafletjs.com) 1.9.4, BSD-2-Clause, incluido en `vendor/`.
+- Iconos de despliegue y corte (`vendor/icons/paraplu.png` y `cut.png`): arte de
+  [titandropm.com](https://titandropm.com/map/dropcalc), incluidos en el repo sólo para que los
+  marcadores queden idénticos a los de ese sitio. Su servidor sirve las imágenes con
+  `Cross-Origin-Resource-Policy: same-origin`, así que enlazarlas desde otra página no funciona.
+  Si preferís no redistribuirlas, hay que redibujarlas.
 - Tiles del mapa: © fortnite.gg / Epic Games. No se redistribuyen, se enlazan.
 - Fortnite es una marca de Epic Games. Este proyecto no está afiliado a Epic Games.
